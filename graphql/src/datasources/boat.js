@@ -53,6 +53,17 @@ class BoatAPI extends RESTDataSource {
     }
   }
 
+  async deleteBoat(id) {
+    try {
+      const response = await this.delete(`/${id}/`);
+      return Array.isArray(response.data)
+        ? response.data.map(launch => this.decorate(launch)).pop()
+        : [];
+    }catch (e) {
+      return [];
+    }
+  }
+
   decorate(boat) {
     return {
       id: boat.id,

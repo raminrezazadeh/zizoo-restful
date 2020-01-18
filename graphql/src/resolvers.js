@@ -10,5 +10,7 @@ module.exports = {
       dataSources.boatAPI.createBoat(input),
     updateBoat:(_, { id, input } , { dataSources }) =>
       dataSources.boatAPI.updateBoat(id, input),
+    deleteBoat:(_, { id } , { dataSources }) =>
+      dataSources.boatAPI.deleteBoat(id),
   }
 };

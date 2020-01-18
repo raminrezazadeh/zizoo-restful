@@ -9,6 +9,7 @@ const typeDefs = gql`
   type Mutation {
     createBoat(input: CreateBoatInput): Boat
     updateBoat(id: String, input: UpdateBoatInput): Boat
+    deleteBoat(id: String!): Boat
   }
   
   type Boat {
