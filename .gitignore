@@ -3,21 +3,30 @@
 restful/logs
 restful/*.log
 restful/npm-debug.log*
-
+graphql/logs
+graphql/*.log
+graphql/npm-debug.log*
 
 # Runtime data
 restful/pids
 restful/*.pid
 restful/*.seed
 restful/*.pid.lock
+graphql/pids
+graphql/*.pid
+graphql/*.seed
+graphql/*.pid.lock
 
 
 # Dependency directories
 restful/node_modules/
+graphql/node_modules/
 
 # dotenv environment variables file
 restful/.env
 restful/.env.test
+graphql/.env
+graphql/.env.test
 
 # idea configs
 .idea/

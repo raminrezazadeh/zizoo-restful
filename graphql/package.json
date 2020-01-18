@@ -1,0 +1,19 @@
+{
+  "name": "boat_graph",
+  "version": "1.0.0",
+  "description": "This is GraphQL CRUD",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "Ramin Rezaazdeh",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-rest": "^0.1.5",
+    "apollo-server": "2.6.1",
+    "graphql": "^14.2.1",
+    "dotenv": "8.2.0",
+    "nodemon": "^1.18.4"
+  }
+}
