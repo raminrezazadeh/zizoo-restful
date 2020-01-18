@@ -1,8 +1,21 @@
 const BoatService = require('../services/boat');
 const Response = require('../decorators/response');
+const Common = require('../utilities/common');
+const BadRequestException = require('../exceptions/badRequest');
+
+const validUpdateKeys = [
+  'name',
+  'type',
+  'year',
+  'marina',
+  'skipper',
+  'active',
+  'cabins',
+  'length',
+  'price',
+];
 
 module.exports.list = async (request, response) => {
-  // return response.json({sss:2});
   const { active = null } = request.query;
   const boats = await BoatService.getAll(active);
   return response.json(Response.decorate('boat', boats));
@@ -16,6 +29,10 @@ module.exports.find = async (request, response) => {
 
 module.exports.update = async (request, response) => {
   const { id } = request.params;
+  if(!Common.arrayElementExistInArray(validUpdateKeys, Object.keys(request.body))) {
+    throw new BadRequestException('Body parameters is wrong');
+  }
+
   const boat = await BoatService.update(id, request.body);
   return response.json(Response.decorate('boat', [boat]));
 };

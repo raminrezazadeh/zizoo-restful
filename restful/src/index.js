@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const config = require('./config');
 const mongo = require('./dependencies/mongo');
 const boatRouter = require('./routes/boat');
+const BadRequestException = require('./exceptions/badRequest');
 
 
 const app = express();
