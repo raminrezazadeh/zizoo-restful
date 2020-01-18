@@ -25,11 +25,24 @@ const onShutdown = () => {
   })
 };
 
+const handleError = (error, request, response, next) => {
+  if (error) {
+    return response
+      .status(error.status || 500)
+      .json({
+        httpStatus: error.status || 500,
+        message: error.message
+      });
+  }
+  next(error);
+};
+
 const createServer = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use('/boats', boatRouter);
+  app.use(handleError);
   return app.listen(config.Service.port, config.Service.host)
 };
 
