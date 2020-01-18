@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const config = require('./config');
+const mongo = require('./dependencies/mongo');
 const boatRouter = require('./routes/boat');
 
 
@@ -8,6 +9,7 @@ const app = express();
 
 const onListening = () => {
   console.log(`Service ${config.Service.label} started, listening on port ${config.Service.port}`);
+  mongo.connect();
 };
 
 const onError = (error) => {
@@ -15,6 +17,7 @@ const onError = (error) => {
 };
 
 const onShutdown = () => {
+  mongo.disconnect();
   server.close();
   process.nextTick(() => {
     console.log(`Service ${config.Service.label} terminated`);
