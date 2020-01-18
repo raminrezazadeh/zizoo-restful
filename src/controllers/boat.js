@@ -1,19 +1,54 @@
+const BoatService = require('../services/boat');
+
 module.exports.list = async (request, response) => {
-  return response.json({test: 'list'});
+  const { active = null } = request.query;
+  const boats = await BoatService.getAll(active);
+  return response.json({test: boats});
 };
 
 module.exports.find = async (request, response) => {
-  return response.json({test: 'find'});
+  const { id } = request.params;
+  const boat = await BoatService.findById(id);
+  return response.json({test: boat});
 };
 
 module.exports.update = async (request, response) => {
-  return response.json({test: 'update'});
+  const { id } = request.params;
+  const {name, type, year, marina, skipper, active, cabins, length, price} = request.body;
+  const setUpdate = {
+    name,
+    type,
+    year,
+    marina,
+    skipper,
+    active,
+    cabins,
+    length,
+    price
+  };
+  const boat = await BoatService.update(id, setUpdate);
+  return response.json({test: boat});
 };
 
 module.exports.remove = async (request, response) => {
-  return response.json({test: 'remove'});
+  const { id } = request.params;
+  const boat = await BoatService.delete(id);
+  return response.json({test: boat});
 };
 
 module.exports.create = async (request, response) => {
-  return response.json({test: 'create'});
+  const {name, type, year, marina, skipper, active, cabins, length, price} = request.body;
+  const insert = {
+    name,
+    type,
+    year,
+    marina,
+    skipper,
+    active,
+    cabins,
+    length,
+    price
+  };
+  const boat = await BoatService.create(insert);
+  return response.json({test: boat});
 };

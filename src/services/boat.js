@@ -2,9 +2,10 @@ const BoatModel = require('../models/boat');
 const RuntimeException = require('../exceptions/runtime');
 const NotFoundException = require('../exceptions/notFound');
 
-module.exports.getAll = async () => {
+module.exports.getAll = async (active) => {
   try {
-    return await BoatModel.find({isDeleted: false});
+    const criteria = active !== null ? { active: active } : {}
+    return await BoatModel.find({isDeleted: false, ...criteria});
   }catch (e) {
     throw new RuntimeException(e.message);
   }
