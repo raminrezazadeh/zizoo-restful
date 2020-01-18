@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const config = require('../config');
 
 const onConnect = () => {
   console.log(`Mongo connected.`)
@@ -17,8 +16,12 @@ const onOpen = () => {
   console.log(`Mongo Opened.`)
 };
 
-exports.connect = () => {
-  mongoose.connect(config.Mongo.url, { useNewUrlParser: true, useUnifiedTopology: true });
+exports.connect = (config) => {
+  mongoose.connect(config.Mongo.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  });
 
   mongoose.connection.on('connected', onConnect);
   mongoose.connection.on('error', onError);

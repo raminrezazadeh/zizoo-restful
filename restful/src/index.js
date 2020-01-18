@@ -9,7 +9,7 @@ const app = express();
 
 const onListening = () => {
   console.log(`Service ${config.Service.label} started, listening on port ${config.Service.port}`);
-  mongo.connect();
+  mongo.connect(config);
 };
 
 const onError = (error) => {
@@ -50,3 +50,4 @@ const server = createServer();
 server.on('error', onError);
 server.on('listening', onListening);
 process.on('SIGINT', onShutdown);
+module.exports = server;
