@@ -1,8 +1,7 @@
 const express = require('express');
+const BoatController = require('../controllers/boat');
 const router = express.Router();
 
-router.get('/', (request, response) => {
-  response.json({ss:1});
-});
+router.get('/', BoatController.list);
 
 module.exports = router;
