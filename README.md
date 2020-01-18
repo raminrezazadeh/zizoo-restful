@@ -1,1 +1,1 @@
-# zizoo-restful
+# zizoo-challenge
