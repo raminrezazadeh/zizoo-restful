@@ -1,0 +1,5 @@
+exports.skipper = {
+  OPTIONAL: 'OPTIONAL',
+  MANDATORY: 'MANDATORY',
+  BAREBOAT: 'BAREBOAT',
+}
