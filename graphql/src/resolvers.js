@@ -8,5 +8,7 @@ module.exports = {
   Mutation: {
     createBoat:(_, { input } , { dataSources }) =>
       dataSources.boatAPI.createBoat(input),
+    updateBoat:(_, { id, input } , { dataSources }) =>
+      dataSources.boatAPI.updateBoat(id, input),
   }
 };

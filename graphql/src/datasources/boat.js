@@ -42,6 +42,17 @@ class BoatAPI extends RESTDataSource {
     }
   }
 
+  async updateBoat(id, update) {
+    try {
+      const response = await this.put(`/${id}/`, {...update});
+      return Array.isArray(response.data)
+        ? response.data.map(launch => this.decorate(launch)).pop()
+        : [];
+    }catch (e) {
+      return [];
+    }
+  }
+
   decorate(boat) {
     return {
       id: boat.id,

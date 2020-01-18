@@ -8,6 +8,7 @@ const typeDefs = gql`
   
   type Mutation {
     createBoat(input: CreateBoatInput): Boat
+    updateBoat(id: String, input: UpdateBoatInput): Boat
   }
   
   type Boat {
@@ -29,6 +30,18 @@ const typeDefs = gql`
   }
   
   input CreateBoatInput {
+    name: String
+    type: BoatTypeEnum
+    year: Int
+    marina: String
+    skipper: SkipperTypeEnum
+    active: Boolean
+    cabins: Int
+    length: Int
+    price: Float
+  }
+  
+  input UpdateBoatInput {
     name: String
     type: BoatTypeEnum
     year: Int
