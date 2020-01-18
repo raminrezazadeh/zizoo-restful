@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   type Query {
     boats(input: GetBoatsInput): [Boat!]!
+    boat(id: String!): Boat
   }
   
   type Boat {

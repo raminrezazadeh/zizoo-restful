@@ -8,11 +8,27 @@ class BoatAPI extends RESTDataSource {
   }
 
   async getAllBoats(input) {
-    const params = input ? { active: input.active} : {};
-    const response = await this.get('/', params);
-    return Array.isArray(response.data)
-      ? response.data.map(boat => this.decorate(boat))
-      : [];
+    try {
+
+      const params = input ? {active: input.active} : {};
+      const response = await this.get('/', params);
+      return Array.isArray(response.data)
+        ? response.data.map(boat => this.decorate(boat))
+        : [];
+    }catch (e) {
+      return []
+    }
+  }
+
+  async getBoatById(id) {
+    try {
+      const response = await this.get(`/${id}/`);
+      return Array.isArray(response.data)
+        ? response.data.map(launch => this.decorate(launch)).pop()
+        : [];
+    }catch (e) {
+      return []
+    }
   }
 
   decorate(boat) {
