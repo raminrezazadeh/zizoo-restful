@@ -29,3 +29,7 @@ To get the Node server running locally:
 - `src/services/` - This folder contains the services definitions for working with models.
 - `src/types/` - This folder contains the types definitions for model enum definitions.
 - `src/dependecies/` - This folder contains the database connections and dependencies for using when application started.
+
+
+## Run tests
+- `npm run test` to start tests
