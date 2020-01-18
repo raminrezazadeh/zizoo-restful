@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const config = require('./config');
+const boatRouter = require('./routes/boat');
 
 
 const app = express();
@@ -25,9 +26,7 @@ const createServer = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use('/', (request, response) => {
-    response.json({ss:1});
-  });
+  app.use('/boats', boatRouter);
   return app.listen(config.Service.port, config.Service.host)
 };
 
