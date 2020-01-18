@@ -6,6 +6,10 @@ const typeDefs = gql`
     boat(id: String!): Boat
   }
   
+  type Mutation {
+    createBoat(input: CreateBoatInput): Boat
+  }
+  
   type Boat {
     id: String!
     name: String
@@ -22,6 +26,18 @@ const typeDefs = gql`
   
   input GetBoatsInput {
     active: Boolean
+  }
+  
+  input CreateBoatInput {
+    name: String
+    type: BoatTypeEnum
+    year: Int
+    marina: String
+    skipper: SkipperTypeEnum
+    active: Boolean
+    cabins: Int
+    length: Int
+    price: Float
   }
   
   enum BoatTypeEnum {

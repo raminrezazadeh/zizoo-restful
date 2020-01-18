@@ -16,7 +16,7 @@ class BoatAPI extends RESTDataSource {
         ? response.data.map(boat => this.decorate(boat))
         : [];
     }catch (e) {
-      return []
+      return [];
     }
   }
 
@@ -27,7 +27,18 @@ class BoatAPI extends RESTDataSource {
         ? response.data.map(launch => this.decorate(launch)).pop()
         : [];
     }catch (e) {
-      return []
+      return [];
+    }
+  }
+
+  async createBoat(input) {
+    try {
+      const response = await this.post(`/`, {...input});
+      return Array.isArray(response.data)
+        ? response.data.map(launch => this.decorate(launch)).pop()
+        : [];
+    }catch (e) {
+      return [];
     }
   }
 

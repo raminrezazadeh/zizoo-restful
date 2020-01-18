@@ -4,5 +4,9 @@ module.exports = {
       dataSources.boatAPI.getAllBoats(input),
     boat: (_, { id }, { dataSources }) =>
       dataSources.boatAPI.getBoatById(id)
+  },
+  Mutation: {
+    createBoat:(_, { input } , { dataSources }) =>
+      dataSources.boatAPI.createBoat(input),
   }
 };
