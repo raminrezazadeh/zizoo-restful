@@ -11,5 +11,5 @@ To get the Node server running locally:
 # Getting started without docker
 - Clone this repo
 - Step one - [Zizoo Restful](https://github.com/raminrezazadeh/zizoo-restful/tree/master/restful) - Follow Zizoo Restful documentation
-- Step two - [Zizoo GraphQL](https://github.com/raminrezazadeh/zizoo-restful/tree/master/graphqll) - Follow Zizoo GraphQL documentation
+- Step two - [Zizoo GraphQL](https://github.com/raminrezazadeh/zizoo-restful/tree/master/graphql) - Follow Zizoo GraphQL documentation
 - Step three - Open your browser and go to GraphQl URL provided by Step two.
