@@ -3,8 +3,6 @@
 > ### ZizooBoat code challenge with (Apollo) codebase containing boat GraphQL apis.
 
 
-This repo is functionality complete — PRs and issues welcome!
-
 # Getting started
 
 To get the Node server running locally:
