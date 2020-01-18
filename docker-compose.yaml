@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+
+  mongo:
+    image: mongo
+    volumes:
+      - db-data:/data/db
+
+  rest:
+    build: restful
+    environment:
+      - "PORT=3001"
+      - "HOST=0.0.0.0"
+      - "MONGO_URL=mongodb://mongo:27017/boat"
+    depends_on:
+      - mongo
+
+  graph:
+    build: graphql
+    ports:
+      - "8080:4000"
+    environment:
+      - "PORT=4000"
+      - "HOST=0.0.0.0"
+      - "BOAT_REST_URL=http://rest:3001/boats"
+    depends_on:
+      - rest
+volumes:
+  db-data:
