@@ -38,18 +38,6 @@ module.exports.remove = async (request, response) => {
 };
 
 module.exports.create = async (request, response) => {
-  const {name, type, year, marina, skipper, active, cabins, length, price} = request.body;
-  const insert = {
-    name,
-    type,
-    year,
-    marina,
-    skipper,
-    active,
-    cabins,
-    length,
-    price
-  };
-  const boat = await BoatService.create(insert);
+  const boat = await BoatService.create(request.body);
   return response.json(Response.decorate('boat', [boat]));
 };
