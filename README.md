@@ -16,7 +16,7 @@ To get the Node server running locally:
 
 
 # GraphQL sample queries
--Create Boat
+- Create Boat
 ```
 mutation create {
   createBoat(
@@ -39,7 +39,7 @@ mutation create {
 }
 ```
 
--Update Boat
+- Update Boat
 ```
 mutation update {
   updateBoat(
@@ -63,7 +63,7 @@ mutation update {
 }
 ```
 
--Delete Boat
+- Delete Boat
 ```
 mutation delete {
   deleteBoat(
@@ -76,7 +76,7 @@ mutation delete {
 }
 ```
 
--Get All Boats (Input is optional)
+- Get All Boats (Input is optional)
 ```
 mutation getBoats {
   boats(input: {active:true}) {
@@ -88,7 +88,7 @@ mutation getBoats {
 }
 ```
 
--Get Boat by id
+- Get Boat by id
 ```
 mutation getBoat {
   boat(id: "5e21bd8da0d4f061a5cd372e") {
